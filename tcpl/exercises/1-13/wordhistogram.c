@@ -3,24 +3,35 @@
 main() {
 
 	int c;
-	int count = 0;
-	int lengthword;
-	int wordcount;
+	int a = 0;
+	int lengthword[10];
+
+	for (int i = 0; i < 10; ++i)
+		lengthword[i] = 0;
 
 	while ((c = getchar()) != EOF) {
-		if (c != ' ' && c != '\t' && c != '\n') {
-			++count;
-			lengthword = count;
+		if (c != ' ' && c != '\t' && c != '\n'
+			&& c != '\b') {
+			++lengthword[a];
 		} else {
-			count = 0;
+			++a;
 		}
 	}
 
-	for (int i = 0; i < 15; ++i) {
-		printf("\n%2d", i);
-		for (int a = 0; a < 10; ++a) {
-			printf(" -");
+	for (int i = 15; i > 0; --i) {
+		printf("\n");
+		for (int u = 0; u < 10; ++u) {
+			if (lengthword[u] >= i)
+				printf(" *");
+			else
+				printf(" -");
 		}
 	}
+	
+	printf("\n");
+	for (int i = 0; i < 10; ++i) {
+		printf(" %d", lengthword[i]);
+	}
+
 	printf("\n");
 }
