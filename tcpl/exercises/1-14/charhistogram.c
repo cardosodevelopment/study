@@ -18,7 +18,9 @@ main() {
 	for (int i = 30; i > 0; --i) {
 		printf("\n%2d", i);
 		for (int u = 0; u <= 25; ++u) {
-			if (listchar[u] >= i)
+			if (listchar[u] >= i) // Need revision. When listchar[u] == i the condition
+								  // is executed until the end. So is not computed the 
+								  // frenquecies of the letter Z.
 				printf(" *");
 			else
 				printf(" -");
