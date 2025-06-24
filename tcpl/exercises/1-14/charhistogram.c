@@ -1,11 +1,23 @@
 #include <stdio.h>
 
-main() {
-	
+/*
+	Exercise 1-14. Write a program to print a histogram of the frequencies of
+	different characters in its inputs.
+*/
+
+#define MINCHAR 0
+#define MAXCHAR 30
+#define MINABC 1
+#define MAXABC 26
+#define CHARASCIIMIN 65
+#define CHARASCIIMAX 91
+
+main() 
+{
 	int c;
 	int listchar[25];
 
-	for (int i = 0; i < 25; ++i)
+	for (int i = 0; i <= 25; ++i)
 		listchar[i] = 0;
 
 	while ((c = getchar()) != EOF) {
@@ -15,12 +27,10 @@ main() {
 			++listchar[c - 'a'];
 	}
 
-	for (int i = 30; i > 0; --i) {
+	for (int i = MAXCHAR; i > MINCHAR; --i) {
 		printf("\n%2d", i);
-		for (int u = 0; u <= 25; ++u) {
-			if (listchar[u] >= i) // Need revision. When listchar[u] == i the condition
-								  // is executed until the end. So is not computed the 
-								  // frenquecies of the letter Z.
+		for (int u = MINABC - 1; u < MAXABC; ++u) {
+			if (listchar[u] >= i)
 				printf(" *");
 			else
 				printf(" -");
@@ -28,7 +38,7 @@ main() {
 	}
 	
 	printf("\n  ");
-	for (int i = 65; i < 91; ++i)
+	for (int i = CHARASCIIMIN; i < CHARASCIIMAX; ++i)
 		printf("%2c", i);
 	printf("\n");
 }
