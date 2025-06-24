@@ -1,13 +1,20 @@
 #include <stdio.h>
 
+/*
+	Exercise 1-12. Write a program that prints its input one word per line. 
+*/
+
 main() {
 	
-	int c;
-
+	int c, blank;
+	
 	while ((c = getchar()) != EOF) {
-		if (c == ' ')
-			putchar(10);
-		else if (c)
+		if (c != ' ' && c != '\t' && c != '\n') {
 			putchar(c);
+			blank = 0;
+		} else if (blank == 0) {
+			blank = 1;
+			putchar('\n');
+		}
 	}
 }
