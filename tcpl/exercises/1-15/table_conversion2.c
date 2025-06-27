@@ -9,16 +9,16 @@
 #define LOWER 0
 #define STEP 20
 
-float converter(float f);
+float converter(int f);
 
 main()
 {	
 	for (int fahr = LOWER; fahr <= UPPER; fahr += STEP)
-		printf("%d %6.1f\n", fahr, converter(fahr));
+		printf("%3d %6.1f\n", fahr, converter(fahr));
 	return 0;
 }
 
-float converter(float fahr)
+float converter(int fahr)
 {
 	float celsius;
 
