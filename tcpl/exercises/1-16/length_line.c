@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/*
+	Exercise 1-16. Revise the main routine of the longest-line program so it
+	will correctly print the length of arbitrarily long input lines, and as
+	much as possible of the text.
+*/
+
 #define MAXLINE 1000 /* maximum input line size */
 
 int get_line(char line[], int maxline);
@@ -49,7 +55,6 @@ void copy(char to[], char from[])
 	int i;
 
 	i = 0;
-	while ((to[i] = from[i]) != '\0') {
+	while ((to[i] = from[i]) != '\0')
 		++i;
-	}
 }
