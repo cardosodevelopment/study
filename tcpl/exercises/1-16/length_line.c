@@ -13,24 +13,21 @@ void copy(char to[], char from[]);
 
 main()
 {
-	int length;
 	int len;				/* current line length */
 	int max;				/* maximum length seen so far */
 	char line[MAXLINE];		/* current input line */
 	char longest[MAXLINE];	/* longest line saved here */
 	
-	length = 0;
 	max = 0;
 	while ((len = get_line(line, MAXLINE)) > 0) {
 		if (len > max) {
 			max = len;
-			length = max;
 			copy(longest, line);
 		}
 	}
 	if (max > 0) {
 		printf("%s", longest);
-		printf("%d characters, with max possible %d\n", length - 1, MAXLINE);
+		printf("%d characters, with max possible %d\n", max - 1, MAXLINE);
 	}
 	return 0;
 }
