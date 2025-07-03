@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #define MAXLINE 1000
-#define MINIMUM 1
 
 void storage(char to[], char from[], int max);
 int get_line(char s[], int lim);
@@ -14,10 +13,8 @@ main()
 	char output[MAXLINE];
 
 	while ((len = get_line(input, MAXLINE)) > 0) {
-		if (len >= MINIMUM) {
-			storage(output, input, max);
-			max = max + len;
-		}
+		storage(output, input, max);
+		max = max + len;
 	}
 
 	if (max > 0) {
